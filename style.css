@@ -78,8 +78,8 @@ body {
 
 /* Layout */
 .container {
-    max-width: 900px;
-    width: 100%;
+    max-width: 1200px;
+    width: 95%;
     z-index: 1;
 }
 
