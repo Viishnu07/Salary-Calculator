@@ -1,0 +1,19 @@
+# IDE configuration
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Optional: Output directories if you ever introduce a build step
+dist/
+build/
+node_modules/
+.env

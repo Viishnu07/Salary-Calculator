@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Salary Calculator</title>
+    <meta name="description" content="Calculate your monthly net take-home salary including EPF, SOCSO, EIS, Overtime, and Night Shift Allowances.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Salary Calculator</h1>
+            <p>Calculate your net take-home pay based on your shifts, OT, and statutory deductions.</p>
+        </header>
+
+        <main class="calculator-grid">
+            <!-- Left Column: Fixed / Base Info -->
+            <section class="card base-settings">
+                <h2><span class="icon">⚙️</span> Base Settings</h2>
+                
+                <div class="input-group">
+                    <label for="basicSalary">Basic Monthly Salary (RM)</label>
+                    <input type="number" id="basicSalary" value="2300" step="100">
+                </div>
+
+                <div class="input-group-row">
+                    <div class="input-group">
+                        <label for="epfPercent">EPF (%)</label>
+                        <input type="number" id="epfPercent" value="11" step="0.5">
+                    </div>
+                    <div class="input-group">
+                        <label for="socsoPercent">SOCSO (%)</label>
+                        <input type="number" id="socsoPercent" value="0.5" step="0.05" title="Approx Employee Share">
+                    </div>
+                    <div class="input-group">
+                        <label for="eisPercent">EIS (%)</label>
+                        <input type="number" id="eisPercent" value="0.2" step="0.05" title="Approx Employee Share">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="divisor">Daily Rate Divisor <span class="tooltip" title="Malaysia standard is usually 26. Since you work 4 days a week, your company might use a different divisor. You can adjust this.">?</span></label>
+                    <input type="number" id="divisor" value="26" step="1">
+                    <small class="helper-text">Calculated Daily Rate: <strong id="calculatedDailyRate">RM 0.00</strong></small>
+                </div>
+            </section>
+
+            <!-- Right Column: Monthly Variables -->
+            <section class="card monthly-inputs">
+                <h2><span class="icon">📅</span> Monthly Inputs</h2>
+                
+                <div class="input-group">
+                    <label for="otDays">OT Days Worked (1.5x Day Rate)</label>
+                    <input type="number" id="otDays" value="0" step="1" min="0">
+                </div>
+
+                <div class="input-group">
+                    <label for="phDays">Public Holiday Days Worked (3.0x Day Rate)</label>
+                    <input type="number" id="phDays" value="0" step="1" min="0">
+                </div>
+
+                <div class="input-group">
+                    <label for="nightShifts">Night Shifts Worked (RM 20 / shift)</label>
+                    <input type="number" id="nightShifts" value="0" step="1" min="0">
+                </div>
+            </section>
+
+            <!-- Bottom: Summary -->
+            <section class="card summary-card">
+                <h2><span class="icon">💰</span> Final Summary</h2>
+                
+                <div class="summary-breakdown">
+                    <div class="summary-item">
+                        <span>Basic Salary</span>
+                        <span id="displayBasic">RM 2300.00</span>
+                    </div>
+                    <div class="summary-item plus">
+                        <span>Overtime Pay (OT & PH)</span>
+                        <span id="displayOT">+ RM 0.00</span>
+                    </div>
+                    <div class="summary-item plus">
+                        <span>Night Shift Allowance</span>
+                        <span id="displayAllowance">+ RM 0.00</span>
+                    </div>
+                    
+                    <div class="summary-item minus">
+                        <span>EPF Deduction</span>
+                        <span id="displayEPF">- RM 0.00</span>
+                    </div>
+                    <div class="summary-item minus">
+                        <span>SOCSO Deduction</span>
+                        <span id="displaySOCSO">- RM 0.00</span>
+                    </div>
+                    <div class="summary-item minus">
+                        <span>EIS Deduction</span>
+                        <span id="displayEIS">- RM 0.00</span>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="net-salary">
+                    <span>Net Take-Home Salary</span>
+                    <span id="netTakeHome" class="highlight">RM 0.00</span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
