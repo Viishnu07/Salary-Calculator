@@ -30,7 +30,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 3rem 1.5rem;
+    padding: 3rem 0.5rem; /* Reduced side padding to 0.5rem to be very close to the edge */
     position: relative;
     overflow-x: hidden;
 }
@@ -78,8 +78,8 @@ body {
 
 /* Layout */
 .container {
-    max-width: 1200px;
-    width: 95%;
+    max-width: 100%;
+    width: 98%; /* 98% allows it to sit perfectly near the edge */
     z-index: 1;
 }
 
